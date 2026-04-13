@@ -1,0 +1,351 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Enriqueta', serif;
+    font-size: 11px;
+}
+
+.page {
+    position: fixed;
+    inset: 0;
+    display: none;
+}
+
+.page.active {
+    display: flex;
+}
+
+/* ===== COVER ===== */
+#cover {
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(145deg, #a8d8ea, #c7f464 40%, #fed6e3 70%, #ff8c94);
+    text-align: center;
+}
+
+.cover-content img {
+    width: 180px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.25));
+}
+
+.cover-content img:hover {
+    transform: scale(1.04);
+}
+
+.cover-content img:active {
+    transform: scale(0.96);
+}
+
+.cover-content p {
+    margin-top: 18px;
+    color: rgba(255, 255, 255, 0.95);
+    letter-spacing: 3px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+#cover.fade-out {
+    animation: fadeOut 0.6s forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+}
+
+/* ===== CONTENT ===== */
+#content {
+    justify-content: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: linear-gradient(175deg,
+            #b8e4f0 0%,
+            #cdf5a8 18%,
+            #fefbe0 38%,
+            #fde8f0 62%,
+            #ffb3ba 82%,
+            #ffd8a8 100%);
+    background-attachment: fixed;
+}
+
+/* ===== CANVAS ===== */
+.canvas {
+    width: 100%;
+    max-width: 360px;
+    padding: 45px 16px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+/* ===== SECTION 1: OPENER (amplop + bunga) ===== */
+.section-opener {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: -25px;
+    /* overlap disesuaikan agar ujungnya menempel wajar */
+    z-index: 1;
+}
+
+/* ===== IMAGES OVERLAY ===== */
+.flower-img {
+    position: absolute;
+    left: -40px;
+    top: 0px;
+    z-index: 10;
+    width: 165px; /* Dibuat sedikit lebih panjang agar bisa menjangkau bawah */
+    transform-origin: top center;
+    transform: rotate(14deg); /* Dimiringkan wajar agar tangkai masuk pas ke text "selalu" */
+    filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.15));
+}
+
+/* Amplop terbuka */
+.envelope-open {
+    position: relative;
+    width: 230px;
+    margin-left: 20px;
+    margin-top: 30px;
+    /* Diturunkan dari batas atas canvas */
+}
+
+.envelope-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.18));
+}
+
+/* Polaroids */
+.polaroid-pos-1 {
+    position: absolute;
+    top: -75px;
+    right: -30px;
+    width: 150px;
+    z-index: 12;
+}
+
+.polaroid-pos-2 {
+    position: absolute;
+    bottom: -85px;
+    /* diturunkan agar tidak menutupi 'kumpul lagi' */
+    right: -30px;
+    width: 165px;
+    z-index: 12;
+}
+
+.polaroid-pos-right {
+    position: absolute;
+    bottom: -115px;
+    /* diturunkan seimbang */
+    right: -35px;
+    width: 145px;
+    z-index: 11;
+}
+
+.polaroid-pos-left {
+    position: absolute;
+    bottom: -85px;
+    /* diturunkan agar tidak menutupi 'makin nikmat' */
+    right: 20px;
+    width: 135px;
+    z-index: 10;
+}
+
+/* ===== LETTER CARD ===== */
+.letter-card {
+    position: relative;
+    width: 100%;
+    background: #fdfcf8;
+    border-radius: 6px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    margin-bottom: 25px;
+    /* dikembalikan ke jarak normal/awal */
+    padding: 24px 16px 24px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    /* Efek kertas surat */
+    background-image:
+        repeating-linear-gradient(transparent,
+            transparent 27px,
+            rgba(180, 200, 255, 0.12) 27px,
+            rgba(180, 200, 255, 0.12) 28px);
+}
+
+.letter-card-detail {
+    margin-top: 5px;
+    /* small margin to bring it closer if needed */
+    margin-bottom: 5px;
+    /* dikurangi agar menu di bawahnya lebih naik/rapat */
+    padding-bottom: 30px;
+    /* normal padding at bottom */
+}
+
+.letter-body {
+    font-family: 'Enriqueta', serif;
+    font-size: 11px;
+    color: #2a2a2a;
+    line-height: 1.8;
+}
+
+.letter-body p {
+    margin-bottom: 8px;
+}
+
+.letter-greeting {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px !important;
+    color: #1a1a1a;
+}
+
+.section-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a1a;
+    display: block;
+    margin-bottom: 12px;
+}
+
+/* ===== EVENT BLOCK ===== */
+.event-block {
+    margin: 8px 0 14px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.7);
+    border-left: 3px solid #c0392b;
+    border-radius: 0 6px 6px 0;
+}
+
+.event-block p {
+    font-size: 11px;
+    margin-bottom: 3px;
+    color: #2d2d2d;
+    line-height: 1.6;
+}
+
+/* ===== DRESSCODE ===== */
+.label-bold {
+    font-weight: 700;
+    font-size: 11px;
+    margin-top: 4px;
+    margin-bottom: 2px;
+}
+
+.hint {
+    font-size: 10px !important;
+    color: #777 !important;
+    margin-bottom: 10px !important;
+}
+
+/* ===== DOTS ===== */
+.dots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 8px 0 12px;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    flex-shrink: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== DIVIDER ===== */
+.divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ddd, transparent);
+    margin: 12px 0 14px;
+}
+
+/* ===== STRONG / CTA ===== */
+.strong {
+    font-weight: 700;
+    font-size: 12px;
+    display: block;
+    margin-top: 10px;
+    color: #1a1a1a;
+}
+
+/* ===== MENU SECTION ===== */
+.menu-section {
+    width: 100%;
+    margin-top: 20px;
+    /* dikurangi agar teks klik menu dan gambarnya naik */
+    padding: 0 4px;
+    text-align: left;
+    /* Shift contents to left side as in design */
+}
+
+.menu-label {
+    font-family: 'Enriqueta', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    /* diubah jadi putih agar tidak nabrak background pink/kuning */
+    text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.4);
+    /* bayangan diperjelas */
+    line-height: 1.3;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.menu-photos {
+    display: none;
+}
+
+/* ===== MENU LABEL LINK ===== */
+.menu-label-link {
+    text-decoration: none;
+    display: block;
+}
+
+.menu-label-link:hover .menu-label {
+    text-shadow: 2px 3px 10px rgba(0, 0, 0, 0.35);
+    transform: scale(1.03);
+    transition: all 0.2s;
+}
+
+/* ===== FOTO TEA HOUSE ===== */
+.menu-btn {
+    display: block;
+    text-decoration: none;
+    margin-top: 4px;
+    text-align: left;
+}
+
+.fototea-img {
+    width: 100%;
+    max-width: 140px;
+    margin-left: 5px;
+    /* Let the logo align to the left */
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    display: block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    object-fit: cover;
+}
+
+.fototea-img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
