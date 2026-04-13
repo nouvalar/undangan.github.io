@@ -46,9 +46,9 @@ body {
 
 .cover-label {
     margin-top: 18px;
-    font-family: 'Enriqueta', serif;
+    font-family: 'Montserrat-light', sans-serif;
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 400;
     color: #ffffff;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -305,10 +305,10 @@ body {
 }
 
 .menu-label {
-    font-family: 'Enriqueta', serif;
+    font-family: 'Montserrat-light', sans-serif;
     font-size: 18px;
     /* Diperbesar dari 16px agar lebih terbaca */
-    font-weight: 700;
+    font-weight: 400;
     color: #ffffff;
     /* diubah jadi putih agar tidak nabrak background pink/kuning */
     text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.4);
