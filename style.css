@@ -44,14 +44,15 @@ body {
     transform: scale(0.96);
 }
 
-.cover-content p {
+.cover-label {
     margin-top: 18px;
-    color: rgba(255, 255, 255, 0.95);
-    letter-spacing: 3px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 11px;
+    font-family: 'Enriqueta', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.4);
 }
 
 #cover.fade-out {
@@ -110,9 +111,11 @@ body {
     left: -40px;
     top: 0px;
     z-index: 10;
-    width: 165px; /* Dibuat sedikit lebih panjang agar bisa menjangkau bawah */
+    width: 165px;
+    /* Dibuat sedikit lebih panjang agar bisa menjangkau bawah */
     transform-origin: top center;
-    transform: rotate(14deg); /* Dimiringkan wajar agar tangkai masuk pas ke text "selalu" */
+    transform: rotate(14deg);
+    /* Dimiringkan wajar agar tangkai masuk pas ke text "selalu" */
     filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.15));
 }
 
@@ -152,20 +155,26 @@ body {
 
 .polaroid-pos-right {
     position: absolute;
-    bottom: -115px;
-    /* diturunkan seimbang */
-    right: -35px;
-    width: 145px;
+    bottom: -130px;
+    /* Lebih turun untuk efek bertingkat */
+    right: -45px;
+    /* Digeser menjauh ke luar kanan */
+    width: 155px;
+    /* Sedikit diperbesar */
     z-index: 11;
+    /* Di atas box */
 }
 
 .polaroid-pos-left {
     position: absolute;
-    bottom: -85px;
-    /* diturunkan agar tidak menutupi 'makin nikmat' */
-    right: 20px;
-    width: 135px;
-    z-index: 10;
+    bottom: -150px;
+    /* Sedikit di atas polaroid kanan */
+    right: 50px;
+    width: 145px;
+    z-index: 12;
+    /* Berada paling atas (di atas polaroid kanan) */
+    transform: rotate(-20deg);
+    /* Diputar belok ke arah kiri */
 }
 
 /* ===== LETTER CARD ===== */
@@ -297,7 +306,8 @@ body {
 
 .menu-label {
     font-family: 'Enriqueta', serif;
-    font-size: 16px;
+    font-size: 18px;
+    /* Diperbesar dari 16px agar lebih terbaca */
     font-weight: 700;
     color: #ffffff;
     /* diubah jadi putih agar tidak nabrak background pink/kuning */
